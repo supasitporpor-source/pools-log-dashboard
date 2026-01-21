@@ -1,8 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { ProductLog, ApiResponse, LogStats } from '@/types';
 
-// const API_URL = 'https://your-vercel-domain.vercel.app/api/product-logs';
-const API_URL = '/api/product-logs'; // จะใช้ mock API ก่อน
+const API_URL = 'https://por-vibecode.vercel.app/api/product-logs';
 
 export const useProductLogs = () => {
   const [logs, setLogs] = useState<ProductLog[]>([]);
@@ -42,11 +41,11 @@ export const useProductLogs = () => {
 
     logs.forEach(log => {
       const status = log.status.toLowerCase();
-      if (status === 'success') {
+      if (status === 'successful' || status === 'success') {
         stats.success++;
-      } else if (status === 'failed') {
+      } else if (status === 'failed' || status === 'failure') {
         stats.failed++;
-      } else if (status === 'running') {
+      } else if (status === 'running' || status === 'processing') {
         stats.running++;
       }
     });

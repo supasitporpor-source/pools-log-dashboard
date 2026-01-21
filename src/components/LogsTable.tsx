@@ -10,9 +10,12 @@ const LogsTable: React.FC<LogsTableProps> = ({ logs }) => {
 
   const getStatusBadge = (status: string) => {
     const statusConfig: Record<string, { class: string; icon: string; text: string }> = {
+      'successful': { class: 'bg-green-100 text-green-800', icon: 'fa-check-circle', text: 'สำเร็จ' },
       'success': { class: 'bg-green-100 text-green-800', icon: 'fa-check-circle', text: 'สำเร็จ' },
       'failed': { class: 'bg-red-100 text-red-800', icon: 'fa-times-circle', text: 'ล้มเหลว' },
+      'failure': { class: 'bg-red-100 text-red-800', icon: 'fa-times-circle', text: 'ล้มเหลว' },
       'running': { class: 'bg-yellow-100 text-yellow-800', icon: 'fa-clock', text: 'กำลังดำเนินการ' },
+      'processing': { class: 'bg-yellow-100 text-yellow-800', icon: 'fa-clock', text: 'กำลังดำเนินการ' },
       'pending': { class: 'bg-gray-100 text-gray-800', icon: 'fa-hourglass-half', text: 'รอดำเนินการ' }
     };
 
